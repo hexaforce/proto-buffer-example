@@ -1,0 +1,19 @@
+syntax = "proto3";
+//package example.protobuf;
+ option go_package = "example.com/project/protos/fizz";
+message SimpleMessage {
+    message HeaderItem {
+        string name = 1;
+        string value = 2;
+    }
+    enum Type {
+        START = 0;
+        BLOB = 1;
+        END = 2;
+    }
+
+    uint64 id = 1;
+    Type message_type = 2;
+    repeated HeaderItem headers = 3;
+    bytes blob = 4; 
+}
